@@ -1,5 +1,7 @@
 package br.com.triadworks.issuetracker.controller;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -8,6 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
+import br.com.triadworks.issuetracker.dao.UsuarioDao;
 import br.com.triadworks.issuetracker.model.Usuario;
 import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 import br.com.triadworks.issuetracker.service.Autenticador;
@@ -25,6 +28,9 @@ public class LoginBean {
 	private UsuarioWeb usuarioWeb;
 	@Inject
 	private FacesUtils facesUtils;
+	
+	@Inject
+	private UsuarioDao usuarioDao;
 
 	public String logar() {
 
@@ -40,7 +46,15 @@ public class LoginBean {
 
 	@PostConstruct
 	public void initUser(){
-		
+		List<Usuario> usuarios = usuarioDao.listaTudo();
+		if(usuarios != null && !usuarios.isEmpty()){
+			Usuario admin = new Usuario();
+			admin.setEmail("admin@admin.com");
+			admin.setLogin("admin");
+			admin.setSenha("admin");
+			admin.setNome("Administrator Godlike");
+			usuarioDao.salva(admin);
+		}
 	}
 	
 	public String sair() {
