@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import br.com.triadworks.issuetracker.controller.UsuarioWeb;
 import br.com.triadworks.issuetracker.dao.IssueDao;
 import br.com.triadworks.issuetracker.model.Issue;
+import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 
-@Controller
-@Scope("request")
+@Named
+@ViewAccessScoped
 public class DashboardBean {
 
 	private List<Issue> issues = new ArrayList<Issue>();
@@ -22,8 +23,8 @@ public class DashboardBean {
 	private IssueDao issueDao;
 	private UsuarioWeb usuarioWeb;
 	
-	@Autowired
-	public DashboardBean(IssueDao issueDao, UsuarioWeb usuarioWeb) {
+	@Inject
+	public DashboardBean(IssueDao issueDao, @UsuarioLogado UsuarioWeb usuarioWeb) {
 		this.issueDao = issueDao;
 		this.usuarioWeb = usuarioWeb;
 	}

@@ -4,13 +4,20 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
+
+import org.apache.myfaces.extensions.cdi.core.api.Advanced;
 
 import br.com.triadworks.issuetracker.dao.ProjetoDao;
 import br.com.triadworks.issuetracker.model.Projeto;
 
 @FacesConverter(forClass=Projeto.class)
+@Advanced
 public class ProjetoConverter implements Converter {
 
+	@Inject
+	private ProjetoDao dao;
+	
 	@Override
 	public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
 		
@@ -19,8 +26,6 @@ public class ProjetoConverter implements Converter {
 		
 		Long id = new Long(value);
 		
-		ProjetoDao dao = ctx.getApplication()
-				.evaluateExpressionGet(ctx, "#{projetoDao}", ProjetoDao.class);
 		
 		Projeto projeto = dao.carrega(id);
 		return projeto;

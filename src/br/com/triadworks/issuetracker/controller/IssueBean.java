@@ -5,17 +5,17 @@ import java.util.Date;
 import java.util.List;
 
 import javax.faces.component.UIForm;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
 import br.com.triadworks.issuetracker.dao.IssueDao;
 import br.com.triadworks.issuetracker.model.Issue;
 
-@Controller
-@Scope("request")
+@Named
+@ViewAccessScoped
 public class IssueBean {
 	
 	private static final String ESTADO_DE_NOVO = "_novo";
@@ -32,7 +32,7 @@ public class IssueBean {
 	private UsuarioWeb usuarioWeb;
 	private FacesUtils facesUtils;
 	
-	@Autowired
+	@Inject
 	public IssueBean(IssueDao issueDao, UsuarioWeb usuarioWeb, FacesUtils facesUtils) {
 		this.issueDao = issueDao;
 		this.usuarioWeb = usuarioWeb;

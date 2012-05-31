@@ -1,12 +1,12 @@
 package br.com.triadworks.issuetracker.controller;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+import javax.enterprise.inject.Produces;
+import javax.faces.bean.SessionScoped;
 
 import br.com.triadworks.issuetracker.model.Usuario;
+import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 
-@Controller
-@Scope("session")
+@SessionScoped
 public class UsuarioWeb {
 
 	private Usuario usuario;
@@ -23,6 +23,8 @@ public class UsuarioWeb {
 		return this.usuario != null;
 	}
 
+	@Produces
+	@UsuarioLogado
 	public Usuario getUsuario() {
 		return usuario;
 	}

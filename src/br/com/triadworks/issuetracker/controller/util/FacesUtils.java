@@ -4,16 +4,14 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-@Component
 public class FacesUtils {
 	
 	private FacesContext facesContext;
 	
-	@Autowired
+	@Inject
 	public FacesUtils(FacesContext facesContext) {
 		this.facesContext = facesContext;
 	}

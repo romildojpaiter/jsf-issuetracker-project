@@ -8,10 +8,6 @@
     version="2.1">
 
 	<application>
-		<!-- Spring EL Resolver -->
-		<el-resolver>
-			org.springframework.web.jsf.el.SpringBeanFacesELResolver
-		</el-resolver>
 		<!-- Internacionalização -->
 		<resource-bundle>
 			<base-name>

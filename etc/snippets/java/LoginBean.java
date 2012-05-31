@@ -3,9 +3,11 @@ package br.com.triadworks.issuetracker.controller;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
 
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
 import br.com.triadworks.issuetracker.model.Usuario;
+import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 import br.com.triadworks.issuetracker.service.Autenticador;
 
 @ManagedBean
@@ -15,13 +17,13 @@ public class LoginBean {
 	private String login;
 	private String senha;
 	
-	@ManagedProperty("#{usuarioWeb}")
+	@Inject @UsuarioLogado
 	private UsuarioWeb usuarioWeb;
 	
-	@ManagedProperty("#{autenticador}")
+	Inject
 	private Autenticador autenticador;
 	
-	@ManagedProperty("#{facesUtils}")
+	@Inject
 	private FacesUtils facesUtils;
 	
 	public String logar() {

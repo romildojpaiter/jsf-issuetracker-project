@@ -4,13 +4,19 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
+
+import org.apache.myfaces.extensions.cdi.core.api.Advanced;
 
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
 import br.com.triadworks.issuetracker.model.Usuario;
 
 @FacesConverter(forClass=Usuario.class)
+@Advanced
 public class UsuarioConverter implements Converter {
 
+	@Inject
+	private UsuarioDao dao;
 	@Override
 	public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
 		
@@ -18,9 +24,6 @@ public class UsuarioConverter implements Converter {
 			return null;
 		
 		Long id = new Long(value);
-		
-		UsuarioDao dao = ctx.getApplication()
-				.evaluateExpressionGet(ctx, "#{usuarioDao}", UsuarioDao.class);
 		
 		Usuario usuario = dao.carrega(id);
 		return usuario;

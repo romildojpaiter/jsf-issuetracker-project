@@ -1,17 +1,19 @@
 package br.com.triadworks.issuetracker.controller.dashboard;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import br.com.triadworks.issuetracker.controller.UsuarioWeb;
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
 import br.com.triadworks.issuetracker.dao.IssueDao;
 import br.com.triadworks.issuetracker.model.Comentario;
 import br.com.triadworks.issuetracker.model.Issue;
+import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 
-@Controller
-@Scope("request")
+@Named
+@ViewAccessScoped
 public class DetalheDaIssueBean {
 
 	private Long id;
@@ -22,8 +24,8 @@ public class DetalheDaIssueBean {
 	private UsuarioWeb usuarioWeb;
 	private FacesUtils facesUtils;
 	
-	@Autowired
-	public DetalheDaIssueBean(IssueDao issueDao, UsuarioWeb usuarioWeb, FacesUtils facesUtils) {
+	@Inject
+	public DetalheDaIssueBean(IssueDao issueDao, @UsuarioLogado UsuarioWeb usuarioWeb, FacesUtils facesUtils) {
 		this.issueDao = issueDao;
 		this.usuarioWeb = usuarioWeb;
 		this.facesUtils = facesUtils;
