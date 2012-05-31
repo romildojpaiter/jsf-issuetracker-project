@@ -25,7 +25,7 @@ public class DetalheDaIssueBean {
 	private FacesUtils facesUtils;
 	
 	@Inject
-	public DetalheDaIssueBean(IssueDao issueDao, @UsuarioLogado UsuarioWeb usuarioWeb, FacesUtils facesUtils) {
+	public DetalheDaIssueBean(IssueDao issueDao, UsuarioWeb usuarioWeb, FacesUtils facesUtils) {
 		this.issueDao = issueDao;
 		this.usuarioWeb = usuarioWeb;
 		this.facesUtils = facesUtils;

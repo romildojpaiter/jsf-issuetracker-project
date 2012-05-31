@@ -1,5 +1,6 @@
 package br.com.triadworks.issuetracker.controller;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -20,7 +21,7 @@ public class LoginBean {
 
 	@Inject
 	private Autenticador autenticador;
-	@Inject @UsuarioLogado
+	@Inject 
 	private UsuarioWeb usuarioWeb;
 	@Inject
 	private FacesUtils facesUtils;
@@ -37,6 +38,11 @@ public class LoginBean {
 		return null;
 	}
 
+	@PostConstruct
+	public void initUser(){
+		
+	}
+	
 	public String sair() {
 		usuarioWeb.logout();
 		return "login";

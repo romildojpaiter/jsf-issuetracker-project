@@ -17,7 +17,7 @@ public class LoginBean {
 	private String login;
 	private String senha;
 	
-	@Inject @UsuarioLogado
+	@Inject
 	private UsuarioWeb usuarioWeb;
 	
 	Inject

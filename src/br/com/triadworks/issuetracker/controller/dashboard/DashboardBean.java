@@ -24,7 +24,7 @@ public class DashboardBean {
 	private UsuarioWeb usuarioWeb;
 	
 	@Inject
-	public DashboardBean(IssueDao issueDao, @UsuarioLogado UsuarioWeb usuarioWeb) {
+	public DashboardBean(IssueDao issueDao, UsuarioWeb usuarioWeb) {
 		this.issueDao = issueDao;
 		this.usuarioWeb = usuarioWeb;
 	}

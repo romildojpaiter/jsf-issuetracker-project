@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.component.UIForm;
+import javax.inject.Inject;
 
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
@@ -26,9 +27,9 @@ public class UsuarioBean {
 	
 	private UIForm form;
 	
-	@ManagedProperty("#{usuarioDao}")
+	@Inject
 	private UsuarioDao usuarioDao;
-	@ManagedProperty("#{facesUtils}")
+	@Inject
 	private FacesUtils facesUtils;
 	
 	public void lista() {

@@ -13,6 +13,7 @@ import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessS
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
 import br.com.triadworks.issuetracker.dao.IssueDao;
 import br.com.triadworks.issuetracker.model.Issue;
+import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 
 @Named
 @ViewAccessScoped
