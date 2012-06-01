@@ -1,5 +1,6 @@
 package br.com.triadworks.issuetracker.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,7 @@ import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 
 @Named
 @ViewAccessScoped
-public class IssueBean {
+public class IssueBean implements Serializable{
 	
 	private static final String ESTADO_DE_NOVO = "_novo";
 	private static final String ESTADO_DE_EDICAO = "_edicao";
@@ -33,6 +34,11 @@ public class IssueBean {
 	private UsuarioWeb usuarioWeb;
 	private FacesUtils facesUtils;
 	
+	
+   //contrutor padrao necessario para o container cdi "bootar"
+	public IssueBean() {
+	}
+
 	@Inject
 	public IssueBean(IssueDao issueDao, UsuarioWeb usuarioWeb, FacesUtils facesUtils) {
 		this.issueDao = issueDao;

@@ -1,13 +1,15 @@
 package br.com.triadworks.issuetracker.controller;
 
+import java.io.Serializable;
+
+import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
-import javax.faces.bean.SessionScoped;
 
 import br.com.triadworks.issuetracker.model.Usuario;
 import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 
 @SessionScoped
-public class UsuarioWeb {
+public class UsuarioWeb implements Serializable{
 
 	private Usuario usuario;
 	

@@ -1,5 +1,6 @@
 package br.com.triadworks.issuetracker.controller.dashboard;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +17,19 @@ import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 
 @Named
 @ViewAccessScoped
-public class DashboardBean {
+public class DashboardBean implements Serializable{
 
 	private List<Issue> issues = new ArrayList<Issue>();
 	
 	private IssueDao issueDao;
 	private UsuarioWeb usuarioWeb;
 	
+	
+	
+	public DashboardBean() {
+		 
+	}
+
 	@Inject
 	public DashboardBean(IssueDao issueDao, UsuarioWeb usuarioWeb) {
 		this.issueDao = issueDao;

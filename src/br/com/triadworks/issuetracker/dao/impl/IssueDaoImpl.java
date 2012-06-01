@@ -2,6 +2,7 @@ package br.com.triadworks.issuetracker.dao.impl;
 
 import java.util.List;
 
+import javax.annotation.PreDestroy;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -11,16 +12,14 @@ import br.com.triadworks.issuetracker.dao.IssueDao;
 import br.com.triadworks.issuetracker.model.Comentario;
 import br.com.triadworks.issuetracker.model.Issue;
 
-
 public class IssueDaoImpl implements IssueDao {
 
-	@PersistenceContext
+	@PersistenceContext(name="issueTrackerPU")
 	private EntityManager entityManager;
-	
+
 	@Override
 	public List<Issue> listaTudo() {
-		return entityManager
-				.createQuery("from Issue", Issue.class)
+		return entityManager.createQuery("from Issue", Issue.class)
 				.getResultList();
 	}
 
@@ -50,9 +49,8 @@ public class IssueDaoImpl implements IssueDao {
 	@Override
 	public List<Issue> getIssuesDoUsuario(Long id) {
 		return entityManager
-				.createQuery("from Issue where assinadoPara.id = :id", Issue.class)
-				.setParameter("id", id)
-				.getResultList();
+				.createQuery("from Issue where assinadoPara.id = :id",
+						Issue.class).setParameter("id", id).getResultList();
 	}
 
 	@Override
@@ -68,5 +66,12 @@ public class IssueDaoImpl implements IssueDao {
 		Issue issue = carrega(id);
 		issue.fecha(comentario); // thanks persistence context ;-)
 	}
-	
+
+	@PreDestroy
+	public void cleanup() {
+		if (this.entityManager.isOpen()) {
+			this.entityManager.close();
+		}
+	}
+
 }

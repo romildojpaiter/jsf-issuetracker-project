@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import br.com.triadworks.issuetracker.controller.UsuarioWeb;
 
-@WebFilter(urlPatterns="/*")
+ 
 public class SecurityFilter implements Filter {
 
 	private static final String LOGIN_PAGE = "/pages/login.xhtml";

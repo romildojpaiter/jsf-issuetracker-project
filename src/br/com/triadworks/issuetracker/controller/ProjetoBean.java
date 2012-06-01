@@ -1,18 +1,24 @@
 package br.com.triadworks.issuetracker.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.component.UIForm;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
 import br.com.triadworks.issuetracker.dao.ProjetoDao;
 import br.com.triadworks.issuetracker.model.Projeto;
 
-@ManagedBean
-public class ProjetoBean {
+@ViewAccessScoped
+@Named
+public class ProjetoBean implements Serializable{
 	
 	private Projeto projeto = new Projeto();
 	private List<Projeto> projetos = new ArrayList<Projeto>();
@@ -25,9 +31,9 @@ public class ProjetoBean {
 	
 	private UIForm form;
 	
-	@ManagedProperty("#{projetoDao}")
+	@Inject
 	private ProjetoDao projetoDao;
-	@ManagedProperty("#{facesUtils}")
+	@Inject
 	private FacesUtils facesUtils;
 	
 	public void lista() {

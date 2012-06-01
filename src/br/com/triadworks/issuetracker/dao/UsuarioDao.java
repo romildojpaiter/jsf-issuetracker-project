@@ -1,10 +1,11 @@
 package br.com.triadworks.issuetracker.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import br.com.triadworks.issuetracker.model.Usuario;
 
-public interface UsuarioDao {
+public interface UsuarioDao extends Serializable{
 
 	public List<Usuario> listaTudo();
 

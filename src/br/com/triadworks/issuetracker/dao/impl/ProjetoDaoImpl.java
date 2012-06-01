@@ -2,6 +2,7 @@ package br.com.triadworks.issuetracker.dao.impl;
 
 import java.util.List;
 
+import javax.annotation.PreDestroy;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -12,13 +13,12 @@ import br.com.triadworks.issuetracker.model.Projeto;
 
 public class ProjetoDaoImpl implements ProjetoDao {
 
-	@PersistenceContext
+	@PersistenceContext(name="issueTrackerPU")
 	private EntityManager entityManager;
-	
+
 	@Override
 	public List<Projeto> listaTudo() {
-		return entityManager
-				.createQuery("from Projeto", Projeto.class)
+		return entityManager.createQuery("from Projeto", Projeto.class)
 				.getResultList();
 	}
 
@@ -44,6 +44,13 @@ public class ProjetoDaoImpl implements ProjetoDao {
 	@Transactional
 	public Projeto carrega(Long id) {
 		return entityManager.find(Projeto.class, id);
+	}
+
+	@PreDestroy
+	public void cleanup() {
+		if (this.entityManager.isOpen()) {
+			this.entityManager.close();
+		}
 	}
 
 }

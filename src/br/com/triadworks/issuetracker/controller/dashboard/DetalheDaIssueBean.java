@@ -1,9 +1,12 @@
 package br.com.triadworks.issuetracker.controller.dashboard;
 
+import java.io.Serializable;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+import org.apache.myfaces.shared.util.serial.SerialFactory;
 
 import br.com.triadworks.issuetracker.controller.UsuarioWeb;
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
@@ -14,7 +17,7 @@ import br.com.triadworks.issuetracker.qualifier.UsuarioLogado;
 
 @Named
 @ViewAccessScoped
-public class DetalheDaIssueBean {
+public class DetalheDaIssueBean implements Serializable{
 
 	private Long id;
 	private Issue issue;
@@ -24,6 +27,12 @@ public class DetalheDaIssueBean {
 	private UsuarioWeb usuarioWeb;
 	private FacesUtils facesUtils;
 	
+	
+	
+	public DetalheDaIssueBean() {
+		 
+	}
+
 	@Inject
 	public DetalheDaIssueBean(IssueDao issueDao, UsuarioWeb usuarioWeb, FacesUtils facesUtils) {
 		this.issueDao = issueDao;

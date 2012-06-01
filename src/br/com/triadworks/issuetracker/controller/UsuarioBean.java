@@ -1,5 +1,6 @@
 package br.com.triadworks.issuetracker.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +8,17 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.component.UIForm;
 import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
 import br.com.triadworks.issuetracker.model.Usuario;
 
-@ManagedBean
-public class UsuarioBean {
+@Named
+@ViewAccessScoped
+public class UsuarioBean implements Serializable{
 	
 	private Usuario usuario = new Usuario();
 	private String confirmacaoDeSenha;
