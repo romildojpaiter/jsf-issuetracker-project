@@ -18,6 +18,7 @@ public class AutenticadorImpl implements Autenticador {
 	@Override
 	public Usuario autentica(String login, String senha) {
 		Usuario usuario = usuarioDao.buscaPor(login, senha);
+		System.out.println("Usuario enontrado:"+usuario);
 		return usuario;
 	}
 

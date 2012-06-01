@@ -54,8 +54,6 @@
 				<include name="*.html" />
 				<include name="*.xhtml" />
 			</fileset>
-			<zipfileset dir="${webroot.dir}/WEB-INF/config" 
-				prefix="WEB-INF/config" excludes="**/*-test.xml" />
 		</war>
 	</target>
 	
