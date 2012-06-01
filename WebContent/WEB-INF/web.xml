@@ -52,7 +52,7 @@
 	
 	<listener>
         <listener-class>
-            org.apache.myfaces.extensions.cdi.openwebbeans.startup.WebBeansAwareConfigurationListener
+            org.apache.webbeans.servlet.WebBeansConfigurationListener
         </listener-class>
     </listener>
     
