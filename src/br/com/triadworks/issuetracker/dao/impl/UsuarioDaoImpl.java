@@ -16,7 +16,7 @@ import br.com.triadworks.issuetracker.model.Usuario;
 
 public class UsuarioDaoImpl implements UsuarioDao {
 
-	@PersistenceContext(name = "issueTrackerPU")
+	@PersistenceContext(unitName = "issueTrackerPU")
 	private EntityManager entityManager;
 
 	@Override

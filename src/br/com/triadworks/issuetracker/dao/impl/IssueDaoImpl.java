@@ -14,7 +14,7 @@ import br.com.triadworks.issuetracker.model.Issue;
 
 public class IssueDaoImpl implements IssueDao {
 
-	@PersistenceContext(name="issueTrackerPU")
+	@PersistenceContext(unitName = "issueTrackerPU")
 	private EntityManager entityManager;
 
 	@Override

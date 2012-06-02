@@ -13,7 +13,7 @@ import br.com.triadworks.issuetracker.model.Projeto;
 
 public class ProjetoDaoImpl implements ProjetoDao {
 
-	@PersistenceContext(name="issueTrackerPU")
+	@PersistenceContext(unitName = "issueTrackerPU")
 	private EntityManager entityManager;
 
 	@Override
