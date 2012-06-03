@@ -14,6 +14,13 @@ import javax.persistence.Persistence;
 
 import br.com.triadworks.issuetracker.qualifier.Unit;
 
+/**
+ * Apenas examplo de produtor de entity manager, no projeto estamos utilizando 
+ * @PerstenceContext gerenciado pelo OpenWebBeans
+ * 
+ * @author rmpestano
+ *
+ */
 @SessionScoped
 public class EntityManagerProducer implements Serializable{
 	
