@@ -53,6 +53,9 @@
 	<listener>
         <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
     </listener>
+     <listener>
+    <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
+  </listener>
     
 	
 	<!-- Faces Servlet -->
