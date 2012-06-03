@@ -10,8 +10,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/geronimo-atinject_1.0_spec-1.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/geronimo-jcdi_1.0_spec-1.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate3.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javassist-3.12.0.GA.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/myfaces-api-2.1.7.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/myfaces-extcdi-bundle-jsf20-1.0.5.jar"/>
@@ -21,6 +19,11 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/openwebbeans-resource-1.1.4.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/openwebbeans-spi-1.1.4.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/openwebbeans-web-1.1.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-core-4.1.4.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="etc/lib/hibernate-4.1.4/hibernate-entitymanager-4.1.4.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-validator-4.3.0.Final.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-6-openjdk">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>

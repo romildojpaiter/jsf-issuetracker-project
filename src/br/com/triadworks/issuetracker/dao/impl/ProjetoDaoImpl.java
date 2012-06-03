@@ -3,17 +3,18 @@ package br.com.triadworks.issuetracker.dao.impl;
 import java.util.List;
 
 import javax.annotation.PreDestroy;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import org.apache.myfaces.extensions.cdi.jpa.api.Transactional;
 
 import br.com.triadworks.issuetracker.dao.ProjetoDao;
 import br.com.triadworks.issuetracker.model.Projeto;
+import br.com.triadworks.issuetracker.qualifier.Unit;
 
 public class ProjetoDaoImpl implements ProjetoDao {
 
-	@PersistenceContext(unitName = "issueTrackerPU")
+	@Inject @Unit
 	private EntityManager entityManager;
 
 	@Override

@@ -3,8 +3,10 @@ package br.com.triadworks.issuetracker.dao.impl;
 import java.util.List;
 
 import javax.annotation.PreDestroy;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 
 import org.apache.myfaces.extensions.cdi.jpa.api.Transactional;
 import org.hibernate.Criteria;
@@ -13,10 +15,11 @@ import org.hibernate.criterion.Restrictions;
 
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
 import br.com.triadworks.issuetracker.model.Usuario;
+import br.com.triadworks.issuetracker.qualifier.Unit;
 
 public class UsuarioDaoImpl implements UsuarioDao {
 
-	@PersistenceContext(unitName = "issueTrackerPU")
+	@PersistenceContext(unitName="issueTrackerPU")
 	private EntityManager entityManager;
 
 	@Override
