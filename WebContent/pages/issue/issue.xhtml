@@ -14,10 +14,6 @@
 			
 			<h:form binding="#{issueBean.form}">
 			
-				<t:saveState value="#{issueBean.state}"/>
-				<t:saveState value="#{issueBean.issue}"/>
-				<t:saveState value="#{issueBean.issues}" />
-				
 				<t:div id="blocoDePesquisa" rendered="#{issueBean.pesquisando}">
 					<div align="right">
 						<h:commandLink value="Novo" 

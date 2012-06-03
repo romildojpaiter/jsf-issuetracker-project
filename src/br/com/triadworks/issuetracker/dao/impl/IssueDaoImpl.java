@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -13,11 +13,12 @@ import org.apache.myfaces.extensions.cdi.jpa.api.Transactional;
 import br.com.triadworks.issuetracker.dao.IssueDao;
 import br.com.triadworks.issuetracker.model.Comentario;
 import br.com.triadworks.issuetracker.model.Issue;
-import br.com.triadworks.issuetracker.qualifier.Unit;
 
+@Dependent
+@Named("issueDao")
 public class IssueDaoImpl implements IssueDao {
 
-	@Inject @Unit(name="issueTrackerPU")
+	@PersistenceContext(unitName="issueTrackerPU")
 	private EntityManager entityManager;
 
 	@Override

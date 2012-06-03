@@ -1,11 +1,15 @@
 package br.com.triadworks.issuetracker.controller;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import br.com.triadworks.issuetracker.controller.util.FacesUtils;
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
@@ -14,18 +18,20 @@ import br.com.triadworks.issuetracker.service.Autenticador;
 
 @Named
 @RequestScoped
-public class LoginBean {
+public class LoginBean implements Serializable {
 
 	private String login;
 	private String senha;
 
 	@Inject
 	private Autenticador autenticador;
-	@Inject 
+	
+	@Inject
 	private UsuarioWeb usuarioWeb;
+	
 	@Inject
 	private FacesUtils facesUtils;
-	
+
 	@Inject
 	private UsuarioDao usuarioDao;
 
@@ -42,9 +48,9 @@ public class LoginBean {
 	}
 
 	@PostConstruct
-	public void initUser(){
+	public void initUser() {
 		List<Usuario> usuarios = usuarioDao.listaTudo();
-		if(usuarios == null || usuarios.isEmpty()){
+		if (usuarios == null || usuarios.isEmpty()) {
 			Usuario admin = new Usuario();
 			admin.setEmail("admin@admin.com");
 			admin.setLogin("admin");
@@ -53,7 +59,7 @@ public class LoginBean {
 			usuarioDao.salva(admin);
 		}
 	}
-	
+
 	public String sair() {
 		usuarioWeb.logout();
 		return "login";

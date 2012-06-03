@@ -1,11 +1,12 @@
 package br.com.triadworks.issuetracker.service;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
 import br.com.triadworks.issuetracker.model.Usuario;
 
-
+@Dependent
 public class AutenticadorImpl implements Autenticador {
 
 	private UsuarioDao usuarioDao;

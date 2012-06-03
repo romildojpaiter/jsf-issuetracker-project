@@ -13,10 +13,6 @@
 			
 			<h:form binding="#{usuarioBean.form}">
 			
-				<t:saveState value="#{usuarioBean.state}"/>
-				<t:saveState value="#{usuarioBean.usuario}"/>
-				<t:saveState value="#{usuarioBean.usuarios}" />
-				
 				<t:div id="blocoDePesquisa" rendered="#{usuarioBean.pesquisando}">
 					<div align="right">
 						<h:commandLink value="Novo" 
@@ -67,6 +63,7 @@
 							</h:commandLink>  &#160;
 							<h:commandLink value="remover"
 								action="#{usuarioBean.remove}"
+								disabled="#{usuario.id eq usuarioLogado.id}"
 								onclick="return confirm('Deseja realmente remover este usuário?');">
 								<f:ajax render="@form :mensagens" />
 								<f:setPropertyActionListener 

@@ -1,9 +1,11 @@
 JSF Issue Tracker Project
 =========================
 
-Projeto simples de uma aplicação de Issue Tracker com `JSF 2.x`, `Spring 3.x` e `Hibernate 3.6.x` com o objetivo de explanar as principais features de cada tecnologia e como integra-las de maneira produtiva em um projeto real. O projeto é construído durante os cursos e treinamentos de **JSF 2, Spring e Hibernate** ministrados pela [TriadWorks](http://www.triadworks.com.br).
+Projeto simples de uma aplicação de Issue Tracker com `JSF 2.x`, `CDI(Open Web Bean 1.1.4)`, `CODI(1.0.5)` e `Hibernate 4.1.4` com o objetivo de explanar as principais features de cada tecnologia e como integra-las de maneira produtiva em um projeto real. 
 
-Caso tenha interesse ou alguma dúvida nos nossos cursos e treinamentos, por favor, [deixe-nos saber](http://www.triadworks.com.br/contatos.html).
+Esta versão é um fork do projeto https://github.com/rponte/jsf-issuetracker-project que é construído durante os cursos e treinamentos de **JSF 2, Spring e Hibernate** ministrados pela [TriadWorks](http://www.triadworks.com.br).
+
+Caso tenha interesse ou alguma dúvida sobre os cursos e treinamentos da TriadWorks, entre em contato com (http://www.triadworks.com.br/contatos.html).
 
 Configurando o projeto e banco de dados.
 ----------------------------------------
@@ -14,12 +16,11 @@ Os passos básicos são:
 
 1. Importe o projeto no [Eclipse Java EE IDE for Web Developers (Indigo)](http://www.eclipse.org/downloads/) ou superior; 
 2. Adicione o JDBC Driver no diretório `/WebContent/WEB-INF/lib` caso não pretenda utilizar o `PostgreSQL`;
-3. Configure as informações do banco no arquivo `src/jdbc.properties`;
+3. crie o datasource - no tomcat adicione uma entrada no arquivo TOMCAT_HOME/conf/context.xml (exemplo é encontrado na pasta etc/snippets/config/context.xml) 
 4. Crie o banco de dados `issuetracker` com a ferramenta de sua preferência (como o `PGAdmin`, no caso do `PostgreSQL`);
 5. Faça o deploy no `Apache Tomcat 7.x` e inicie o servidor;
-6. Insria um novo usuário no banco (tabela `USUARIO`) para que seja possível logar na aplicação;
-7. Acesse a aplicação através da url [http://localhost:8080/issuetracker](http://localhost:8080/issuetracker) ;
-8. Faça o login com o usuário criado;
+6. Acesse a aplicação através da url [http://localhost:8080/issuetracker](http://localhost:8080/issuetracker) ;
+7. Faça o login com o usuário admin senha admin(no primeiro acesso esse usuario é criado);
 
 Gerando .war da aplicação
 ------------------------
@@ -48,6 +49,10 @@ Mais informações
 **Rafael Ponte**
 - Meu [blog](http://www.rponte.com.br)
 - Meu Twitter [@rponte](http://twitter.com/#!/rponte)
+
+**Rafael Pestano**
+- Meu [blog](http://rpestano.wordpress.com/)
+- Meu Twitter [@realpestano](http://twitter.com/#!/realpestano)
 
 **JSF Group**
 - https://groups.google.com/group/javasf/
