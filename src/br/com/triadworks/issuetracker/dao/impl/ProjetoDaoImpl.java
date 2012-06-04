@@ -4,20 +4,22 @@ import java.util.List;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.myfaces.extensions.cdi.jpa.api.Transactional;
+import org.apache.deltaspike.jpa.api.Transactional;
 
 import br.com.triadworks.issuetracker.dao.ProjetoDao;
 import br.com.triadworks.issuetracker.model.Projeto;
+import br.com.triadworks.issuetracker.qualifier.Unit;
 
 @Dependent
 @Named("projetoDao")//é acessado diretamente na tela(combo de projetos)
 public class ProjetoDaoImpl implements ProjetoDao {
 
-	@PersistenceContext(unitName="issueTrackerPU")
+	@Inject
 	private EntityManager entityManager;
 
 	@Override

@@ -4,23 +4,25 @@ import java.util.List;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.myfaces.extensions.cdi.jpa.api.Transactional;
+import org.apache.deltaspike.jpa.api.Transactional;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.triadworks.issuetracker.dao.UsuarioDao;
 import br.com.triadworks.issuetracker.model.Usuario;
+import br.com.triadworks.issuetracker.qualifier.Unit;
 
 @Dependent
 @Named("usuarioDao")
 public class UsuarioDaoImpl implements UsuarioDao {
 
-	@PersistenceContext(unitName="issueTrackerPU")
+	@Inject
 	private EntityManager entityManager;
 
 	@Override
@@ -45,6 +47,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Transactional
 	public void remove(Usuario usuario) {
 		entityManager.remove(entityManager.merge(usuario));
+		entityManager.flush();
 	}
 
 	@Override

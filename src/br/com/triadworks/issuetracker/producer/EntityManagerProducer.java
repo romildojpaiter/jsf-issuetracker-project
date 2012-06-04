@@ -15,29 +15,29 @@ import javax.persistence.Persistence;
 import br.com.triadworks.issuetracker.qualifier.Unit;
 
 /**
- * Apenas examplo de produtor de entity manager, no projeto estamos utilizando 
- * @PerstenceContext gerenciado pelo OpenWebBeans
  * 
  * @author rmpestano
- *
+ * 
  */
 @SessionScoped
-public class EntityManagerProducer implements Serializable{
+public class EntityManagerProducer implements Serializable {
 	
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("issueTrackerPU");
+
+	private EntityManager em;
 	
-	@Produces @Unit @Dependent 
-	public EntityManager createEntityManager(InjectionPoint ip){
-		try{
-			
-		if(ip.getAnnotated().isAnnotationPresent(Unit.class)){
-			Unit unit = ip.getAnnotated().getAnnotation(Unit.class);
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory(unit.name());
-			return emf.createEntityManager();
-		}
+	@Produces
+	public EntityManager createEntityManager(InjectionPoint ip) {
+		try {
+			if (em == null || !em.isOpen()) {
+				return emf.createEntityManager();
+			} 
+			else {
+				return em;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-
 }
