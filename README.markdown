@@ -1,7 +1,7 @@
 JSF Issue Tracker Project
 =========================
 
-Projeto simples de uma aplicação de Issue Tracker com `JSF 2.x`, `CDI(Open Web Bean 1.1.4)`, `CODI(1.0.5)` e `Hibernate 4.1.4` com o objetivo de explanar as principais features de cada tecnologia e como integra-las de maneira produtiva em um projeto real. 
+Projeto simples de uma aplicação de Issue Tracker com `JSF 2.x`, `CDI(Weld 1.1.8)`, `CODI(1.0.5)` e `Hibernate 4.1.4` com o objetivo de explanar as principais features de cada tecnologia e como integra-las de maneira produtiva em um projeto real. 
 
 Esta versão é um fork do projeto https://github.com/rponte/jsf-issuetracker-project que é construído durante os cursos e treinamentos de **JSF 2, Spring e Hibernate** ministrados pela [TriadWorks](http://www.triadworks.com.br).
 
