@@ -16,7 +16,7 @@ Os passos básicos são:
 
 1. Importe o projeto no [Eclipse Java EE IDE for Web Developers (Indigo)](http://www.eclipse.org/downloads/) ou superior; 
 2. Adicione o JDBC Driver no diretório `/WebContent/WEB-INF/lib` caso não pretenda utilizar o `PostgreSQL`;
-3. crie o datasource - no tomcat adicione uma entrada no arquivo TOMCAT_HOME/conf/context.xml (exemplo é encontrado na pasta etc/snippets/config/context.xml) 
+3. crie o datasource - no tomcat adicione uma entrada no arquivo TOMCAT_HOME/conf/context.xml, um exemplo é encontrado na pasta etc/snippets/config/context.xml ou [aqui](https://github.com/conventions/issuetracker/blob/master/etc/snippets/config/context.xml) 
 4. Crie o banco de dados `issuetracker` com a ferramenta de sua preferência (como o `PGAdmin`, no caso do `PostgreSQL`);
 5. Faça o deploy no `Apache Tomcat 7.x` e inicie o servidor;
 6. Acesse a aplicação através da url [http://localhost:8080/issuetracker](http://localhost:8080/issuetracker) ;
